@@ -1,0 +1,24 @@
+name: Cypress Tests
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          cd Develop/client
+          npm install
+
+      - name: Run Cypress Tests
+        run: |
+          cd Develop/client
+          npx cypress run
