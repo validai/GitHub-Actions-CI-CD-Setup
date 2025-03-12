@@ -8,7 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,6 +22,7 @@ jobs:
           npm install
           npm run build
 
+<<<<<<< HEAD
       - name: Deploy to Render
     env:
                 RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
@@ -28,3 +32,15 @@ jobs:
           -H "Authorization: Bearer $RENDER_API_KEY" \
           -H "Content-Type: application/json" \
           -d '{}'
+=======
+          - name: Deploy to Render
+          env:
+            RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+            RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          run: |
+            curl -X POST "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys" \
+              -H "Authorization: Bearer $RENDER_API_KEY" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        
+>>>>>>> develop

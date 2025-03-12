@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: Cypress Tests
+=======
+name: Cypress Component Tests
+>>>>>>> develop
 
 on:
   pull_request:
@@ -10,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+<<<<<<< HEAD
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -22,3 +27,18 @@ jobs:
         run: |
           cd Develop/client
           npx cypress run
+=======
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cypress Component Tests
+        run: npx cypress run --component
+>>>>>>> develop
